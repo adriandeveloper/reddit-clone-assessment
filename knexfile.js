@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection:'postgres://localhost/reddit-clone-assessment',
-    debug: true,
+    // debug: true,
    },
 
 
