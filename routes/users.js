@@ -8,7 +8,7 @@ router.route('/')
     // console.log(results);
     res.send('yo')
   })
-})
+});
 // .post((req, res) => {
 //   knex('users').insert({
 //     full_name: req.body.user.full_name,
