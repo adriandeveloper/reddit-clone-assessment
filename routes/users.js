@@ -4,12 +4,23 @@ const router = express.Router()
 
 router.route('/')
 .get((req, res) => {
-  knex('users').where().then((err,data) => {
-    req.render('/users/index', (data) => {
-      render: render;
+  knex('users').select().then((results) => {
+    res.render('/users/index', {
+      results
     });
-  });
-});
+    // res.send('yo')
+  })
+})
+// .post((req, res) => {
+//   knex('users').insert({
+//     full_name: req.body.user.full_name,
+//     username: req.body.user.username,
+//     img_url: req.body.user.img_url
+//   })
+//   .returning('id').then((id) => {
+//     res.redirect(`/users/${id}`);
+//   });
+// });
 
 
 
