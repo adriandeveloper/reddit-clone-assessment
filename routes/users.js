@@ -4,11 +4,9 @@ const router = express.Router()
 
 router.route('/')
 .get((req, res) => {
-  knex('users').select().then((results) => {
-    res.render('/users/index', {
-      results
-    });
-    // res.send('yo')
+  knex('users').select('id').then((results) => {
+    // console.log(results);
+    res.send('yo')
   })
 })
 // .post((req, res) => {
