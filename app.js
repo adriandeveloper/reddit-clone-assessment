@@ -8,8 +8,9 @@ const port = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 const userRouter = require('./routes/users');
 require('ejs');
-app.set('view engine', 'ejs')
 require('locus');
+
+app.set('view engine', 'ejs')
 
 // render the home page
 app.get('/', (req, res) => {

@@ -7,14 +7,10 @@
   <title>Users</title>
 </head>
 <body>
-  <h1>Users</h1>
-  <div>
-    <ul>
-      <li>Show all the users</li>
-      <li>Create a new users</li>
-      <li>Edit a users</li>
-      <li>Delete a users</li>
-    </ul>
-  </div>
+  <ul>
+    <%= results.forEach((user) => { %>
+      <li><%= user.full_name %> <%= user.username %> <%= user.img_url %></li>
+    <% }) %>
+  </ul>
 </body>
 </html>

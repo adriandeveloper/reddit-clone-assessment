@@ -1,24 +1,21 @@
-const knex = require('knex');
+'use strict';
+
+const config = require('../knexfile')['development'];
+const knex = require('knex')(config);
 const express = require('express');
 const router = express.Router()
 
 router.route('/')
 .get((req, res) => {
-  knex('users').select('id').then((results) => {
-    // console.log(results);
-    res.send('yo')
+  knex('users').then((allUser) => {
+    res.render('users/index', {user: allUser})
   })
-});
-// .post((req, res) => {
-//   knex('users').insert({
-//     full_name: req.body.user.full_name,
-//     username: req.body.user.username,
-//     img_url: req.body.user.img_url
-//   })
-//   .returning('id').then((id) => {
-//     res.redirect(`/users/${id}`);
-//   });
-// });
+})
+.post((req, res) => {
+  knex('users').insert(req.body.user).returning('id').then((id) => {
+    res.redirect(`/users/${id}`)
+  })
+})
 
 
 
