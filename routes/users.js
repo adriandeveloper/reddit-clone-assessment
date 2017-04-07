@@ -7,8 +7,8 @@ const router = express.Router()
 
 router.route('/')
 .get((req, res) => {
-  knex('users').then((allUser) => {
-    res.render('users/index', {user: allUser})
+  knex('users').then((user) => {
+    res.render('users/index', {user: user})
   })
 })
 .post((req, res) => {
